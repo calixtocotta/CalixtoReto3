@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Message implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
     private String messageText;
     
