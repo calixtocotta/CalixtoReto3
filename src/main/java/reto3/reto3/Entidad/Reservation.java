@@ -17,7 +17,7 @@ import javax.persistence.Temporal;
 public class Reservation implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
 
     private Date startDate;
