@@ -43,4 +43,44 @@ public class serviciosSkate {
             }
         }
     }
+    
+    public Skate update(Skate skate){
+        if(skate.getId()==null){
+            return metodosCrud.save(skate);
+        }else{
+            Optional<Skate> e=metodosCrud.getSkate(skate.getId());
+            if(!e.isEmpty()){
+                if(skate.getName()!=null){
+                    e.get().setName(skate.getName());
+                }
+                if(skate.getBrand()!=null){
+                    e.get().setBrand(skate.getBrand());
+                }
+                if(skate.getYear()!=null){
+                    e.get().setYear(skate.getYear());
+                }
+                if(skate.getDescription()!=null){
+                    e.get().setDescription(skate.getDescription());
+                }
+                if(skate.getCategory()!=null){
+                    e.get().setCategory(skate.getCategory());
+                }
+                metodosCrud.save(e.get());
+                return e.get();
+            }else{
+                return skate;
+            }
+        }
+    }
+    
+    public boolean deleteSkate(int id){
+        
+        
+        Boolean aBoolean=getSkate(id).map(skate -> {
+            metodosCrud.delete(skate);
+            return true;
+        }).orElse(aBoolean=false);
+        
+        return aBoolean;
+    }
 }

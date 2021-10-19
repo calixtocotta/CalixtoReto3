@@ -25,4 +25,9 @@ public class RepositorioClient {
         return crud.save(client);
     }
     
+     //DELETE
+    public void delete(Client client){
+        crud.delete(client);
+    }
+    
 }

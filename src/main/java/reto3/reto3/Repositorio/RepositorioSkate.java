@@ -35,4 +35,9 @@ public class RepositorioSkate {
     public Skate save(Skate skate){
         return crud.save(skate);
     }
+    
+    //DELETE
+    public void delete(Skate skate){
+        crud.delete(skate);
+    }
 }
