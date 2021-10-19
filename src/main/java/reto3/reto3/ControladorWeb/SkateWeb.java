@@ -54,13 +54,13 @@ public class SkateWeb {
     
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Skate update(@RequestBody Skate skateboard){
-        return servicios.update(skateboard);
+    public Skate update(@RequestBody Skate skate){
+        return servicios.update(skate);
     }
     
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") int carId){
-        return servicios.deleteSkate(carId);
+    public boolean delete(@PathVariable("id") int Id){
+        return servicios.deleteSkate(Id);
     }
 }
