@@ -43,7 +43,7 @@ public class CategoryWeb {
     }
     
     @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ResponseStatus(value = HttpStatus.NO_CONTENT)
     public boolean delete(@PathVariable("id") int carId){
         return servicios.deleteCategory(carId);
     }
