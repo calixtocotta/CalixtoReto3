@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=2.0">
+    <link rel="stylesheet" href="estilos/estilo.css">
+    <title>Category</title>
+</head>
+
+<body>
+    <div class="header d-flex">
+        <div class="">| USUARIO</div>
+        <div class="">
+            <a href="Menu.html">Menu</a>
+            <a href="category.html" class="active">Category</a>
+            <a href="skate.html">Skate</a>
+            <a onclick="location.href='message.html'">Message</a>
+            <a href="clien.html" >Client</a>
+            <a href="reservation.html">Reservation</a>
+            <a href="score.html">Score</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="title text-center">Lista de usuarios</h1>
+        <div class="card" id="resultado"></div>
+        <br>
+        <br>
+        <!-- <button onclick="traerInformacion()">Consultar</button> -->
+        <br>
+        <div class="card">
+            <h4 id="validarCampos" class="text-center" style="color: rgba(255, 255, 255, 0.767)"><span>&#160</span></h4>
+            <div class="mb-10px d-flex text-center">
+                <div>
+                    <input class="idU" type="number" id="id" placeholder="id" required>
+                </div>
+                <div>
+                    <input class="nameU" type="text" id="name" placeholder="name" required>
+                </div>
+                <div>
+                    <input class="emailU" type="text" id="email" placeholder="email" required>
+                </div>
+                <div>
+                    <input class="ageU" type="number" id="age" placeholder="age" required>
+                </div>
+            </div>
+            <diV class="text-center">
+                <button class="btn-info btn-gradient mb-10px mr-10px" onclick="validar(1)">Guardar</button>
+                <button class="btn-info btn-gradient mb-10px" onclick="validar(2)">Actualizar</button>
+            </diV>
+        </div>
+
+    </div>
+    <div class="water-mark">Powered by NG ⚡</div>
+
+    <!-- TODOS LOS MALDITOS SCRIPTS DEBEN IR POR ACÁ, PERROHP -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/misFuncionesClient.js"></script>
+    <script>
+        $(document).ready(function(){
+            traerInformacion();
+        })
+    </script>
+
+</body>
+
+</html>

@@ -16,8 +16,31 @@
 	<properties>
 		<java.version>11</java.version>
 	</properties>
-	<dependencies>               
-		<dependency>
+	<dependencies> 
+                 <!--  https://mvnrepository.com/artifact/org.webjars/webjars-locator-core  -->
+                <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-oauth2-client</artifactId>
+                </dependency>
+                <!--  https://mvnrepository.com/artifact/org.webjars/jquery  -->
+                <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>jquery</artifactId>
+                <version>3.6.0</version>
+                </dependency>
+                <!--  https://mvnrepository.com/artifact/org.webjars/bootstrap  -->
+                <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>bootstrap</artifactId>
+                <version>5.1.2</version>
+                </dependency>
+                <!--  https://mvnrepository.com/artifact/org.webjars/webjars-locator-core  -->
+                <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>webjars-locator-core</artifactId>
+                </dependency>
+
+                <dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
@@ -30,7 +53,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+                <dependency>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-oauth2-core</artifactId>
+                    <version>5.5.2</version>
+                    <type>jar</type>
+                </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -47,6 +75,18 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+	 <dependency>
+	  <groupId>org.springframework.boot</groupId>
+	  <artifactId>spring-boot-test</artifactId>
+	  <version>2.5.6-SNAPSHOT</version>
+	  <type>jar</type>
+	 </dependency>
+	 <dependency>
+	  <groupId>junit</groupId>
+	  <artifactId>junit</artifactId>
+	  <version>4.12</version>
+	  <type>jar</type>
+	 </dependency>
 	</dependencies>
 
 	<build>

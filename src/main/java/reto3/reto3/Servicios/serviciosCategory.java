@@ -64,13 +64,10 @@ public class serviciosCategory {
     }
     
     public boolean deleteCategory(int id){
-        
-        
-        Boolean aBoolean=getCategory(id).map(category -> {
+      Boolean aBoolean=getCategory(id).map(category -> {
             metodosCrud.delete(category);
             return true;
         }).orElse(aBoolean=false);
-        
-        return aBoolean;
+       return aBoolean;
     }
 }

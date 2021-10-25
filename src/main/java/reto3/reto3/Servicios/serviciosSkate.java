@@ -10,8 +10,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import reto3.reto3.Repositorio.RepositorioSkate;
-import reto3.reto3.Repositorio.RepositorioSkate;
-import reto3.reto3.Entidad.Skate;
 import reto3.reto3.Entidad.Skate;
 
 /**

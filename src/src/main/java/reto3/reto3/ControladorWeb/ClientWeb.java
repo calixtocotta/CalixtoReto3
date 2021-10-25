@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import reto3.reto3.Entidad.Client;
 
+
 @RestController
 @RequestMapping("/api/Client")
 public class ClientWeb {

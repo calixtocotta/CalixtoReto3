@@ -4,7 +4,6 @@
  */
 package reto3.reto3.Interfaz;
 
-import reto3.reto3.Entidad.Category;
 import org.springframework.data.repository.CrudRepository;
 import reto3.reto3.Entidad.Category;
 
