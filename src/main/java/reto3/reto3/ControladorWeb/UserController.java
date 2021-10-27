@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController 
 public class UserController {
-    
+ 
     @GetMapping("/user")
     public Map<String, Object> user(@AuthenticationPrincipal OAuth2User principal) {
 //        return Collections.singletonMap("name", principal.getAttribute("login"));
@@ -29,9 +29,11 @@ public class UserController {
         return Collections.singletonMap("foto_id", principal.getAttribute("avatar_url"));
     }
     
+   
     @GetMapping("/datos")
     public Map<String, Object> datos(@AuthenticationPrincipal OAuth2User principal) {
 //        return Collections.singletonMap("name", principal.getAttribute("login"));
         return Collections.singletonMap("datos", principal);
     }
+
 }

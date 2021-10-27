@@ -33,44 +33,37 @@ function pintarRespuesta(items){
         myTable+="<tr>";
         myTable+="<td>"+items[i].name+"</td>";
         myTable+="<td>"+items[i].description+"</td>";
-        myTable+="<td> <button class='mx-auto btn-danger btn-gradient' onclick='borrarElemento("+items[i].id+")'>Borrar</button> <button class='mx-auto btn-danger btn-gradient' onclick='recuperarInformacion("+items[i].id+")'>Editar</button> </td>";
-        // + items[i].name + items[i].email + items[i].age
+        myTable+="<td> <button class='mx-auto btn-danger btn-gradient' onclick='borrarElemento("+items[i].id+")'>Borrar</button> <button class='mx-auto btn-danger btn-gradient' id='editar' onclick='Editar("+items[i].id+")'>Editar</button> </td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#resultado").html(myTable);
 }
 
-function recuperarInformacion(id){
-    let idUsuario = id;
+function Editar(items){
+    //$("#resultado").html("<p class='loader text-center'>Cargando...</p>");
     $.ajax({
-        url:"https://g8f8de2cd8423f5-dbreto1.adb.sa-saopaulo-1.oraclecloudapps.com/ords/admin/client/client",
+        url:"http://localhost:8080/api/Category/"+items,
         type:"GET",
         datatype:"JSON",
-        success:function(respuestaU){
+        success:function(respuesta){
+            //console.log(respuesta);
             
-            informacion(idUsuario,respuestaU.items);
-            
-            
-        }
-    });  
-}
+            $("#name").val(respuesta.name),
+            $("#description").val(respuesta.description),
+            $("#id").val(respuesta.id),
 
-function informacion(idU,itemsU){
-    for (i=0; i<itemsU.length; i++ ) {
-        if (idU == itemsU[i].id){
-            $(".idU").val(itemsU[i].id),
-            $(".nameU").val(itemsU[i].name),
-            $(".emailU").val(itemsU[i].email),
-            $(".ageU").val(itemsU[i].age)
+            $("#btn-actualizar").show()
+            $("#btn-guardar").hide()
         }
-    }
+    });
 }
 
 function validar(opcion){
+    
     if ($('#name').val().length == 0 || $('#description').val().length == 0) {
-        console.log($('#name').val());
-        console.log($('#description').val());
+        //console.log($('#name').val());
+        //console.log($('#description').val());
         $("#validarCampos").html("<h4 style='color: red'>Todos los campos son necesarios</h4>");
         return false;
     }else{
@@ -90,15 +83,15 @@ function validar(opcion){
             );
         }
     }
-};
+}
 
 function guardarInformacion(){
     let myData={
         name:$("#name").val(),
-        email:$("#description").val()
+        description:$("#description").val()
     };
     let dataToSend=JSON.stringify(myData);
-    console.log(dataToSend);
+    //console.log(dataToSend);
     $.ajax({
         url: "http://localhost:8080/api/Category/save",
         type: "POST",
@@ -133,24 +126,20 @@ function editarInformacion(){
     let myDataEditar={
         id:$("#id").val(),
         name:$("#name").val(),
-        email:$("#email").val(),
-        age:$("#age").val(),
+        description:$("#description").val()
+
     };
     let dataToSendE=JSON.stringify(myDataEditar);
-
+    //console.log(dataToSendE);
     $.ajax({
-        url:"https://g8f8de2cd8423f5-dbreto1.adb.sa-saopaulo-1.oraclecloudapps.com/ords/admin/client/client",
+        url:"http://localhost:8080/api/Category/update",
         type:"PUT",
         data:dataToSendE,
         contentType:"application/JSON",
         dataType:"JSON",
         //async: false,
         success:function(respuestaE){
-            $("#resultado").empty();
-            $("#id").val(""),
-            $("#name").val(""),
-            $("#email").val(""),
-            $("#age").val(""),
+            $(".registro").val("");
             $("#validarCampos").html("<h4 style='color: green'>Se ha actualizado exitosamente</h4>");
             setTimeout(
                 function(){ 
@@ -167,20 +156,23 @@ function editarInformacion(){
 }
 
 function borrarElemento(idElemento){
-    let myData={
-        id:idElemento
-    };
-    let dataToSend=JSON.stringify(myData);
+
     $.ajax({
-        url: "https://g8f8de2cd8423f5-dbreto1.adb.sa-saopaulo-1.oraclecloudapps.com/ords/admin/client/client",
+        url: "http://localhost:8080/api/Category/"+idElemento,
         type: "DELETE",
         data: dataToSend,
         contentType:"application/JSON",
         dataType: "JSON",
         success:function(respuesta){
             $("#resultado").empty();
+            $("#validarCampos").html("<h4 style='color: green'>Se ha eliminado exitosamente</h4>");
+            setTimeout(
+                function(){ 
+                    document.getElementById("validarCampos").innerHTML = "";
+                }, 6000
+                );
             traerInformacion();
-            alert("Se la eliminado con exito.");
+            
         }
     });
 }

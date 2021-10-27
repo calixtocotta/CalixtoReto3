@@ -30,7 +30,7 @@ body * {
     padding: 30px 10% 50px 10%;
 }
 
-input{
+input,select{
     border-radius: 4px;
     border: 1px solid #d1d1d1;
     padding: 10px 15px;
@@ -161,6 +161,12 @@ img {
 .d-flex{
     display: flex;
     flex-wrap: wrap;
+    min-width: 600px;
+}
+
+table {
+    min-width: 600px;
+    justify-content: center;
 }
 .d-inline-block{
     display: inline-block;

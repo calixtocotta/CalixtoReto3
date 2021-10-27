@@ -6,18 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="estilos/estilo.css">
-    <title>Reto 2</title>
+    <title>Skate</title>
+    <link rel="icon" href="/iconos/skate.png" />
 </head>
 
 <body>
     <div class="header d-flex">
-        <div class="">| SKATE</div>
+        <div class=""><a><img id="photo"> <span id="user"></span></a></div>
         <div class="">
             <a href="Menu.html">Menu</a>
             <a href="category.html" >Category</a>
             <a href="skate.html" class="active">Skate</a>
             <a href="message.html">Message</a>
-            <a href="clien.html" >Client</a>
+            <a href="client.html" >Client</a>
             <a href="reservation.html">Reservation</a>
             <a href="score.html">Score</a>
         </div>
@@ -30,27 +31,32 @@
 
         <br>
         <div class="card">
+            <h4 id="validarCampos" class="text-center" style="color: rgba(255, 255, 255, 0.767)"><span>&#160</span></h4>
             <div class="mb-10px d-flex text-center">
                 <div>
-                    <input class="idS" type="number" id="id" placeholder="id" required>
+                    <input class="datos-entrada" type="number" id="id" placeholder="id" required disabled>
                 </div>
                 <div>
-                    <input class="brandS" type="text" id="brand" placeholder="brand" required >
+                    <input class="datos-entrada" type="text" id="name" placeholder="name" required>
                 </div>
                 <div>
-                    <input class="modelS" type="number" id="model" placeholder="model" required>
+                    <input class="datos-entrada" type="text" id="brand" placeholder="brand" required >
                 </div>
                 <div>
-                    <input class="category_idS" type="number" id="category_id" placeholder="category_id" required>
+                    <input class="datos-entrada" type="number" id="year" placeholder="year" required>
                 </div>
                 <div>
-                    <input class="nameS" type="text" id="name" placeholder="name" required>
+                    <input class="datos-entrada" type="text" id="description" placeholder="description" required>
                 </div>
+                <div id="resultado-category">
+                
+                </div>
+                
                 
             </div>
             <diV class="text-center">
-                <button class="btn-info btn-gradient mb-10px mr-10px" onclick="validar()">Guardar</button>
-                <button class="btn-info btn-gradient mb-10px" onclick="editarInformacion()">Actualizar</button>
+                <button class="btn-info btn-gradient mb-10px mr-10px" id="btn-guardar" onclick="validar(1)">Guardar</button>
+                <button class="btn-info btn-gradient mb-10px" id="btn-actualizar" onclick="validar(2)">Actualizar</button>
             </diV>
         </div>
 
@@ -60,7 +66,16 @@
     <!-- TODOS LOS MALDITOS SCRIPTS DEBEN IR POR ACÁ, PERROHP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/misFuncionesSkate.js"></script>
-
+    <script type="text/javascript" src="js/session.js"></script>
+    <script>
+        $(document).ready(function(){
+            traerInformacion();
+            data_user();
+            $("id").hide()
+            itemsCategory();
+        })
+        
+    </script>
 </body>
 
 </html>

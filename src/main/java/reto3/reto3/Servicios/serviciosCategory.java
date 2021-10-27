@@ -4,6 +4,8 @@
  */
 package reto3.reto3.Servicios;
 
+import reto3.reto3.Repositorio.RepositorioCategory;
+import reto3.reto3.Entidad.Category;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +43,7 @@ public class serviciosCategory {
     
     }
     
-    public Category update(Category category){
+        public Category update(Category category){
         if(category.getId()!=null){
             return metodosCrud.save(category);
         }else{

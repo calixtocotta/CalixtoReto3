@@ -6,18 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=2.0">
     <link rel="stylesheet" href="estilos/estilo.css">
-    <title>Category</title>
+    <title>Client</title>
+    <link rel="icon" href="/iconos/client.png" />
+
 </head>
 
 <body>
     <div class="header d-flex">
-        <div class="">| USUARIO</div>
+        <div class=""><a><img id="photo"> <span id="user"></span></a></div>
         <div class="">
             <a href="Menu.html">Menu</a>
-            <a href="category.html" class="active">Category</a>
+            <a href="category.html">Category</a>
             <a href="skate.html">Skate</a>
             <a onclick="location.href='message.html'">Message</a>
-            <a href="clien.html" >Client</a>
+            <a href="client.html" class="active">Client</a>
             <a href="reservation.html">Reservation</a>
             <a href="score.html">Score</a>
         </div>
@@ -33,21 +35,24 @@
             <h4 id="validarCampos" class="text-center" style="color: rgba(255, 255, 255, 0.767)"><span>&#160</span></h4>
             <div class="mb-10px d-flex text-center">
                 <div>
-                    <input class="idU" type="number" id="id" placeholder="id" required>
+                    <input class="datos-entrada" type="number" id="id" placeholder="id" required disabled>
                 </div>
                 <div>
-                    <input class="nameU" type="text" id="name" placeholder="name" required>
+                    <input class="datos-entrada" type="text" id="name" placeholder="name" required>
                 </div>
                 <div>
-                    <input class="emailU" type="text" id="email" placeholder="email" required>
+                    <input class="datos-entrada" type="text" id="email" placeholder="email" required>
                 </div>
                 <div>
-                    <input class="ageU" type="number" id="age" placeholder="age" required>
+                    <input class="datos-entrada" type="number" id="age" placeholder="age" required>
+                </div>
+                <div>
+                    <input class="datos-entrada" type="password" id="password" placeholder="password" required>
                 </div>
             </div>
             <diV class="text-center">
-                <button class="btn-info btn-gradient mb-10px mr-10px" onclick="validar(1)">Guardar</button>
-                <button class="btn-info btn-gradient mb-10px" onclick="validar(2)">Actualizar</button>
+                <button class="btn-info btn-gradient mb-10px mr-10px" id="btn-guardar" onclick="validar(1)">Guardar</button>
+                <button class="btn-info btn-gradient mb-10px" id="btn-actualizar" onclick="validar(2)">Actualizar</button>
             </diV>
         </div>
 
@@ -57,10 +62,14 @@
     <!-- TODOS LOS MALDITOS SCRIPTS DEBEN IR POR ACÁ, PERROHP -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/misFuncionesClient.js"></script>
+    <script type="text/javascript" src="js/session.js"></script>
     <script>
         $(document).ready(function(){
             traerInformacion();
+            data_user();
+            $("id").hide()
         })
+        
     </script>
 
 </body>
